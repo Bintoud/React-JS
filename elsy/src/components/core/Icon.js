@@ -6,9 +6,8 @@ class Icon extends React.Component {
     render() {
         return(
             <div >
-                <span style={{fontSize:100, color:"red"}}
-                class="material-icons">favorite</span>
-                <p>{this.props.heart}</p>
+                <span style={{fontSize:100, color:this.props.color}} class="material-icons">
+                {this.props.Name}</span>
             </div>
         )
     }

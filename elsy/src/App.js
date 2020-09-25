@@ -15,17 +15,69 @@
 
 
 import React from 'react';  // j'importe le package et l'assigne à la var React;
-import '../public/css/style.css';
-import '../public/css/bootstrap.min.css';
-import HeartRate from './components/HeartRate';
+import './css/style.css';
+import './css/bootstrap.min.css';
+
 import Person from './components/Person';
+import HeartRate from './components/HeartRate';
+import Temperature from './components/Temperature'
+
+
+
+const MIN_TEMPERATURE = -20
+const MAX_TEMPERATURE = 40
+const MIN_HEART = 80
+const MAX_HEART = 180
+const MIN_STEPS = 0
+const MAX_STEPS = 50000  
+
+
+class App extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      water : 0,
+      heart : 120,
+      temperature : -10,
+      steps : 3000
+    };
+
+    this.onHeartChange = this.onHeartChange.bind(this)
+
+  }
+
+  onHeartChange(val) {
+      this.props.heart = val
+
+      this.setState({
+        heart: val
+      })
+  }
+
+  render() {
+    return (
+      <div className="container-fluid"> 
+          <Person></Person>
+          <HeartRate heart={this.state.heart}
+                     min={MIN_HEART}
+                     max={MAX_HEART}>
+                     onChange={this.onHeartChange}
+          </HeartRate>
+          <Temperature></Temperature>
+      </div>
+    )
+  }
+}
+export default App; 
+
 
 
 /*
 class App extends React.Component {  // Class App qui hérite de React.Component;
   render() {                         // Méthode render ajouter à la class qui retourne une div(texte bonjour);
     return (
-      <div className="App">
+      <div>
         <header className="App.header">
           <h1>Bonjour</h1>
           <p>Bienvenue Btou d Lovelace</p>
@@ -36,49 +88,21 @@ class App extends React.Component {  // Class App qui hérite de React.Component
 };
 
 export default App;   // Exportation du module App;
-
-
-//////////////////////////////////////////// */ 
-
-//step two;
-
-
-var MIN_TEMPERATURE = -20
-var MAX_TEMPERATURE = 40
-var MIN_HEART = 80
-var MAX_HEART = 180
-var MIN_STEPS = 0
-var MAX_STEPS = 50000  
-
-class App extends React.Component {
-  render() {
-    return (
-      <div className="container-fluid">
-            <p>{MIN_HEART}</p>
-            <p>{MIN_TEMERATURE}</p>
-            <p>{MIN_STEPS}</p>
-            <Person></Person>
-          <HeartRate ></HeartRate>
-      </div>
-    );
-  };
-};
-
-///////////////////////////////////////////
-
-//step Three;
+*/
 
 /*
 class App extends React.Component {
   render() {
     return (
-      <div> 
-          <Person></Person>
-          <HeartRate ></HeartRate>
+      <div className="container-fluid">
+            <p>Battement de coeur: {MIN_HEART}</p>
+            <p>Température: {MIN_TEMPERATURE}</p>
+            <p>Nombre de pas: {MIN_STEPS}</p>
       </div>
-    )
-  }
-}
+    );
+  };
+};
+
 export default App; 
 
-*/
+ */

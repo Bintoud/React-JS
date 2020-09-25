@@ -2,6 +2,7 @@
 
  
 import React from'react';
+import Icon from './core/Icon';
 
 class Person extends React.Component {
 
@@ -9,8 +10,9 @@ class Person extends React.Component {
         return (
 
             <div className="box col-md-2 col-6" >
-                 <span style = {{color: "black"},{fontSize:100}}
-                  class="material-icons">directions_walk</span>
+                {/* <span style = {{color: "black"},{fontSize:100}}
+                  class="material-icons">directions_walk</span> */}
+                  <Icon Name="directions_walk" color="black"></Icon>
             </div>
         )
     }
