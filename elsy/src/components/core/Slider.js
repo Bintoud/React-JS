@@ -1,7 +1,7 @@
 
 import React from 'react'
 import RCSlider from 'rc-slider'
-import 'rc_slider/assets/index.css'
+import 'rc-slider/assets/index.css';
 
 class Slider extends React.Component {
     render() {

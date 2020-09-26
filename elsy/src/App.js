@@ -21,7 +21,7 @@ import './css/bootstrap.min.css';
 import Person from './components/Person';
 import HeartRate from './components/HeartRate';
 import Temperature from './components/Temperature'
-
+import Water from './components/Water'
 
 
 const MIN_TEMPERATURE = -20
@@ -44,27 +44,84 @@ class App extends React.Component {
     };
 
     this.onHeartChange = this.onHeartChange.bind(this)
-
+    this.onStepsChange = this.onStepsChange.bind(this)
+    this.onTemperatureChange = this.onTemperatureChange.bind(this)
   }
 
   onHeartChange(val) {
-      this.props.heart = val
+      this.state.heart = val
+     let newWater = this.calculaWater(this.state);
 
       this.setState({
-        heart: val
+        heart: val,
+        water : newWater
       })
+  }
+
+  onStepsChange(val) {
+    this.state.steps = val
+   let newWater = this.calculaWater(this.state);
+
+    this.setState({
+      steps: val,
+      water : newWater
+    })
+  }
+
+  onTemperatureChange(val) {
+    this.state.temperature = val
+   let newWater = this.calculaWater(this.state);
+
+    this.setState({
+      temperature: val,
+      water : newWater
+    })
+  }
+
+  calculaWater(sht) {
+   let liters = 1.5
+
+    if (sht.temperature > 20) {
+      let time = sht.temperature - 20
+      liters += time * 0.02
+    }
+    if (sht.heart > 120) {
+      let coeur = sht.heart - 120
+      liters += coeur * 0.0008
+    }
+    if (sht.steps > 10000) {
+      let pas = sht.steps - 10000
+      liters += pas * 0.00002
+    }
+    return Math.round(liters * 100) / 100
   }
 
   render() {
     return (
       <div className="container-fluid"> 
-          <Person></Person>
-          <HeartRate heart={this.state.heart}
+
+          <Water water={this.state.water}></Water>
+
+          <Person  
+                    steps={this.state.steps}
+                     min={MIN_STEPS}
+                     max={MAX_STEPS}
+                     onChange={this.onStepsChange}>
+          </Person>
+      
+          <HeartRate 
+                    heart={this.state.heart}
                      min={MIN_HEART}
-                     max={MAX_HEART}>
-                     onChange={this.onHeartChange}
+                     max={MAX_HEART}
+                     onChange={this.onHeartChange}>
           </HeartRate>
-          <Temperature></Temperature>
+
+          <Temperature  
+                    temperature={this.state.temperature}
+                     min={MIN_TEMPERATURE}
+                     max={MAX_TEMPERATURE}
+                     onChange={this.onTemperatureChange}>
+          </Temperature>
       </div>
     )
   }
