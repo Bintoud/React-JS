@@ -1,0 +1,15 @@
+- Qu'est ce qu'on appelle un composant parent et un composant enfant ?
+Tout deux sont des composants.  N'importe quel composant peut soit être enfant ou soit être parent. 
+Un composant est appellé parent, tout simplement lorsqu'il utilise dans sont render un autre composant. Le composant qui est utilisé devient alors composant enfant.
+Souvent, on a un composant parent qui englobe tout les autres composants (App.js)
+- A quoi sert une props ?
+Faire passer des donnée d'un composant à un autre. Ce passage de donnée est fait à l'aide d'un attribut qu'on rajoute sur le composant (=> d'une clefs et d'une valeur). La valeur peut être de n'importe quelle type (function, ça peut être une valeur du state, string, number etc)
+- A quoi sert le state ? N'importe quel composant peut-en avoir un ?
+Le state il sert à avoir un état de notre composant. Le state c'est un objet qui permet d'initialiser plusieurs valeurs spécifique au composant. N'importe quel composant peut avoir un state
+- Qu'est-ce qu'une méthode de cycle de vie ? Citer en 3 min.
+Une méthode de cycle de vie c'est une méthode lié à un composant appellé à un moment spécifique de celui-ci. 
+Constructor, componentDidMount, componentDidUpdate, render etc
+- Décrivez les éléments nécessaires pour faire une remontée de donnée d'un composant enfant vers son parent.
+On a besoin de passer des props du parent vers l'enfant. Cette props doit être une méthode du parent. L'enfant doit utilisé cette props pour faire la remonté de donnée. 
+- Pourquoi est-il déconseillé de modifier directement la valeur du state d'un composant ? 
+Parceque si je n'utilise pas setState pour modifier mon state, mon composant il ne saura pas qu'il y a eu un changement d'état. Donc le render, ne s'exécutera pas avec les nouvelles données.

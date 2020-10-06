@@ -1,16 +1,17 @@
 
 
-import React from 'react'
+import React, { Component } from 'react'
 
-class Pay extends React.Component {
+class Pay extends Component {
     render() {
         return (
 
             <div>
-                <title> Pay </title>
+                <h2> Pay </h2>
             </div>
         )
     }
 }
 
-export default Pay
+export default Pay;
+
