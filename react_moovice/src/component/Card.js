@@ -1,16 +1,16 @@
 
 import React, { Component } from 'react'
 
-class Discover extends Component {
+class Card extends Component {
     render() {
         return(
 
             <div>
-                <h1>Discover</h1>
+                <h1>Card</h1>
                 
             </div>
         )
     }
 }
 
-export default Discover;
+export default Card;

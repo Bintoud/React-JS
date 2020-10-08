@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 import {
@@ -12,7 +13,9 @@ import Discover from './component/Discover';
 import DiscoverBattle from './component/DiscoverBattle';
 import MyList from './component/MyList';
 import Popular from './component/Popular';
-import PopularBattle from './component/PopularBattle';
+import PopularBattle from './component/PopularBattle'
+import Card from './component/Card';
+
 
 class App extends Component {
   render() {
@@ -73,3 +76,4 @@ export default App;
 </div>
 
 */
+
