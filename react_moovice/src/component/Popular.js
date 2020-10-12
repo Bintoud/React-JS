@@ -28,7 +28,6 @@ class Popular extends Component {
                         title: elem.title,
                         description: elem.overview,
                         imgUrl: `https://image.tmdb.org/t/p/w300/${elem.poster_path}` 
-
                     }
                 })
 
@@ -45,15 +44,18 @@ class Popular extends Component {
         
 
     render() {
+
+        const FirstMovie = this.state.movies[0];
+
         return (
 
             <div className='row'>
-                <h1>Popular</h1>
                 {this.state.movies.map((elem, index) => {
-                    return <div className= "col-6"><Card title={elem.title} description={elem.description}
-                            imgUrl={elem.imgUrl} />
-                            </div>
-                })}
+                    return
+                        <div> 
+                        <Card title={FirstMovie.title} description={FirstMovie.description} imgUrl={FirstMovie.imgUrl} />
+                        </div>
+                    })}
             </div>
         )
     }

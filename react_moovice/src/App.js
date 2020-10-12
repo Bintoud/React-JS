@@ -21,7 +21,7 @@ class App extends Component {
     return (
 
       <Router>
-        <div className='con'>
+        <div className='container'>
           <nav>
             <ul>
               <li><Link to="/">Movies</Link></li>
