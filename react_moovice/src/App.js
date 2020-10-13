@@ -15,9 +15,10 @@ import PopularBattle from './component/PopularBattle'
 import Card from './component/Movie/Card';
 
 
+
 class App extends Component {
   render() {
-    const img = require('./component/img/placeholder.png');
+    //  const img = require('./component/img/placeholder.png');
     return (
 
       <Router>
@@ -38,8 +39,7 @@ class App extends Component {
             <Route path="/My List/"><MyList /> </Route>
           </Switch>
         </div>
-        <div> <Card img={img} /> </div>
-      </Router>     
+      </Router>
     )
   }
 }
