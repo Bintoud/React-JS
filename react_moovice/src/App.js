@@ -18,9 +18,7 @@ import Card from './component/Movie/Card';
 
 class App extends Component {
   render() {
-    //  const img = require('./component/img/placeholder.png');
     return (
-
       <Router>
         <div className='container'>
           <nav>

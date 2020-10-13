@@ -1,7 +1,7 @@
 
 
 import React, { Component } from 'react'
-import placeholder from './img/placeholder';
+//import placeholder from './img/placeholder';
 import { API_KEY } from './Serviceurl/monurl';
 import Card from './Movie/Card';
 
@@ -25,12 +25,13 @@ class PopularBattle extends Component {
             .then(json => {
                 console.log(json)
 
+                const img = require('./img/placeholder.png');
                 const movies = json.results.map((elem) => {
                     return {
                         id: elem.id,
                         title: elem.title,
                         description: elem.overview,
-                        imgUrl: elem.poster_path ? `https://image.tmdb.org/t/p/w300/${elem.poster_path}` : placeholder
+                        imgUrl: elem.poster_path ? `https://image.tmdb.org/t/p/w300/${elem.poster_path}` : <img src={this.props.img} alt='CD' />
                     }
                 })
                 this.setState({ movies })
@@ -73,13 +74,14 @@ class PopularBattle extends Component {
             <div className='row'>
                 <div className='col-6'>
                     <button onClick={() => this.Fileschoix(FirstMovie.id)}>
-                        <Card title={FirstMovie} description={FirstMovie.description} imgUrl={FirstMovie.imgUrl} />
+                        <Card {...FirstMovie} />
                     </button>
                 </div>
                 <div className='col-6'>
                     <button onClick={() => this.Fileschoix(SecondMovie.id)}>
-                        <Card title={SecondMovie.title} description={SecondMovie.description} imgUrl={SecondMovie.imgUrl} />
+                        <Card  {...SecondMovie} />
                     </button>
+                    <img src={this.props.img} alt='CD' />
                 </div>
             </div>
         )
@@ -90,5 +92,5 @@ export default PopularBattle;
 
 
 // ligne 53
-// =  <Card {...FirstMovie} />}
+// =  <Card {...FirstMovie} />}title={FirstMovie.title} description={FirstMovie.description} imgUrl={FirstMovie.imgUrl}
 // pour que les film soit l'un à coter de l'autre on fait un row col-6;

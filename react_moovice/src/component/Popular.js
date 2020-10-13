@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import placeholder from './img/placeholder';
+//import placeholder from './img/placeholder';
 import { API_KEY } from './Serviceurl/monurl';
 import Card from './Movie/Card'; // popular est le parent de Card
 
@@ -22,11 +22,12 @@ class Popular extends Component {
             .then(json => {
                 console.log(json)
 
+                const img = require('./img/placeholder.png');
                 const movies = json.results.map((elem) => { //pour construire un array de chaque film contenant le titre la description et l'image;
                     return {
                         title: elem.title,
                         description: elem.overview,
-                        imgUrl: elem.poster_path ? `https://image.tmdb.org/t/p/w300/${elem.poster_path}` : placeholder
+                        imgUrl: elem.poster_path ? `https://image.tmdb.org/t/p/w300/${elem.poster_path}` : <img src={this.props.img} alt='CD' />
 
                     }
                 })
@@ -42,7 +43,6 @@ class Popular extends Component {
 
 
     render() {
-
         return (
 
             <div className='row'>
@@ -52,6 +52,7 @@ class Popular extends Component {
                         <div key={index} className='col-6'>
                             <Card title={elem.title} description={elem.description} imgUrl={elem.imgUrl} />
                         </div>
+                         
                     )
                 })}
             </div>
