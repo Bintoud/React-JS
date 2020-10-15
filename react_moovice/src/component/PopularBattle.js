@@ -15,7 +15,7 @@ class PopularBattle extends Component {
 
         this.state = {
             movies: [],
-            currentPage: 1,
+            currentPage: 1
         };
     }
 

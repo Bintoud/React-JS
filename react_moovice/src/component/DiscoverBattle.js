@@ -2,11 +2,27 @@
 import React, { Component } from 'react'
 
 class DiscoverBattle extends Component {
+
+    constructor() {
+        super()
+            this.state ={
+                currentPage:0,
+                movies: []
+            }       
+        }
+
+     //   componentDidMount () {
+     //       const TODAY = moment(). ToIString()
+      //  }
+
+
     render() {
         return(
 
-            <div>
-                <h1>Discover Battle</h1>
+            <div className='row'>
+               {this.state.movies.map((one, index) => {
+                    
+               })}
             </div>
         )
     }

@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import protoTypes from 'prop-types';
 
 class Card extends Component {
     render() {
@@ -13,6 +14,20 @@ class Card extends Component {
         )
     }
 }
+
+Card.protoTypes = {
+    title: protoTypes.string,
+    description: protoTypes.string,
+    imgUrl: protoTypes.string
+};
+// protoTypes = si j'utilise ma Card et que je lui passe autre qu'un string ça ne marcheras pas comme on veut.
+
+Card.defaultProps = { // <= pour avoir les trucs par défaut
+    title: '',
+    description: '',
+    imgUrl: './img/placeholder'
+}
+
 
 export default Card;
 
