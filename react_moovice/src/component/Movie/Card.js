@@ -4,6 +4,12 @@ import protoTypes from 'prop-types';
 
 class Card extends Component {
     render() {
+        const {
+            title,
+            description,
+            imgUrl
+        } = this.props
+
         return(
 
             <div>
@@ -22,7 +28,7 @@ Card.protoTypes = {
 };
 // protoTypes = si j'utilise ma Card et que je lui passe autre qu'un string ça ne marcheras pas comme on veut.
 
-Card.defaultProps = { // <= pour avoir les trucs par défaut
+Card.defaultProps = { // <= au cas ou mes title, description sont undefined , alors il prend l'image du cd par défaud.
     title: '',
     description: '',
     imgUrl: './img/placeholder'

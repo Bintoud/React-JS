@@ -4,11 +4,9 @@ import Card from './Movie/Card';
 import { API_KEY } from './Serviceurl/monurl';
 
 class MyList extends Component {
+    
     constructor() {
         super();
-
-        // this.getYourFreackOn = this.getYourFreackOn(this)
-
         this.state = {
             movies: [],
             moviesIds: this.getYourFreackOn()
@@ -21,14 +19,14 @@ class MyList extends Component {
 
         //  this.getYourFreackOn(); // j'apelle ma méthode getYourFreackOn
         // je récupère l'id de chaque film grace à la méthode map qui contient l'url ou il y a tous les films
-        const arrfetch = this.state.moviesIds.map(elem => {
-            console.log('[MyList] results', results);
+        const arrFetch = this.state.moviesIds.map(elem => {
             const url = `http://api.themoviedb.org/3/movie/${elem}?api_key=${API_KEY}`;
             return fetch(url).then(res => res.json())
         })
 
-        Promise.all(arrfetch)
+        Promise.all(arrFetch)
             .then(results => {
+                console.log('[MyList] results', results);
                 const newArr = results.map(elem => {
                     return {
                         title: elem.title,

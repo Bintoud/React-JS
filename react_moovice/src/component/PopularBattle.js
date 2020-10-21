@@ -1,5 +1,4 @@
 
-
 import React, { Component } from 'react'
 //import placeholder from './img/placeholder';
 import { API_KEY } from './Serviceurl/monurl';
